@@ -1,0 +1,79 @@
+{
+  "name": "ATiers — Тирлист Minecraft PvP игроков",
+  "short_name": "ATiers",
+  "description": "Система тир-листов и рейтингов Minecraft PvP игроков. Таблицы лидеров, тиры и отслеживание ранга.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#7c3aed",
+  "orientation": "portrait-primary",
+  "lang": "ru",
+  "dir": "ltr",
+  "categories": [
+    "games",
+    "entertainment",
+    "social"
+  ],
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "label": "ATiers Leaderboard"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Гайд",
+      "short_name": "Гайд",
+      "description": "Руководство по тир-тестам",
+      "url": "/guide",
+      "icons": [
+        {
+          "src": "/favicon.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Турниры",
+      "short_name": "Турниры",
+      "description": "Minecraft PvP турниры",
+      "url": "/tournaments",
+      "icons": [
+        {
+          "src": "/favicon.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Wiki",
+      "short_name": "Wiki",
+      "description": "Вики по режимам PvP",
+      "url": "/wiki",
+      "icons": [
+        {
+          "src": "/favicon.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

@@ -1,0 +1,272 @@
+Uri: https://atiers.net/
+File Name: C:\Downloaded Web Sites\atiers.net\index.htm
+Content Type: text/html
+
+Uri: https://atiers.net/assets/analytics-BZorEE12.js
+File Name: C:\Downloaded Web Sites\atiers.net\assets\analytics-BZorEE12.js
+Content Type: application/javascript
+
+Uri: https://atiers.net/assets/api-CVA7TnRL.js
+File Name: C:\Downloaded Web Sites\atiers.net\assets\api-CVA7TnRL.js
+Content Type: application/javascript
+
+Uri: https://atiers.net/assets/archivo-latin-ext-wght-normal-C4zznr8T.woff2
+File Name: C:\Downloaded Web Sites\atiers.net\assets\archivo-latin-ext-wght-normal-C4zznr8T.woff2
+Content Type: font/woff2
+
+Uri: https://atiers.net/assets/archivo-latin-wght-normal-E0tuGl4L.woff2
+File Name: C:\Downloaded Web Sites\atiers.net\assets\archivo-latin-wght-normal-E0tuGl4L.woff2
+Content Type: font/woff2
+
+Uri: https://atiers.net/assets/archivo-vietnamese-wght-normal-XAtsl5Q_.woff2
+File Name: C:\Downloaded Web Sites\atiers.net\assets\archivo-vietnamese-wght-normal-XAtsl5Q_.woff2
+Content Type: font/woff2
+
+Uri: https://atiers.net/assets/config-BVqR4C8r.js
+File Name: C:\Downloaded Web Sites\atiers.net\assets\config-BVqR4C8r.js
+Content Type: application/javascript
+
+Uri: https://atiers.net/assets/dist-D6ZaZKQS.js
+File Name: C:\Downloaded Web Sites\atiers.net\assets\dist-D6ZaZKQS.js
+Content Type: application/javascript
+
+Uri: https://atiers.net/assets/ibm-plex-mono-cyrillic-400-normal-BSMlKf0J.woff2
+File Name: C:\Downloaded Web Sites\atiers.net\assets\ibm-plex-mono-cyrillic-400-normal-BSMlKf0J.woff2
+Content Type: font/woff2
+
+Uri: https://atiers.net/assets/ibm-plex-mono-cyrillic-400-normal-CEL4l2ZJ.woff
+File Name: C:\Downloaded Web Sites\atiers.net\assets\ibm-plex-mono-cyrillic-400-normal-CEL4l2ZJ.woff
+Content Type: font/woff
+
+Uri: https://atiers.net/assets/ibm-plex-mono-cyrillic-600-normal-CTOM6hUh.woff2
+File Name: C:\Downloaded Web Sites\atiers.net\assets\ibm-plex-mono-cyrillic-600-normal-CTOM6hUh.woff2
+Content Type: font/woff2
+
+Uri: https://atiers.net/assets/ibm-plex-mono-cyrillic-600-normal-fLZuRloM.woff
+File Name: C:\Downloaded Web Sites\atiers.net\assets\ibm-plex-mono-cyrillic-600-normal-fLZuRloM.woff
+Content Type: font/woff
+
+Uri: https://atiers.net/assets/ibm-plex-mono-cyrillic-ext-400-normal-DMdlQ8Kv.woff
+File Name: C:\Downloaded Web Sites\atiers.net\assets\ibm-plex-mono-cyrillic-ext-400-normal-DMdlQ8Kv.woff
+Content Type: font/woff
+
+Uri: https://atiers.net/assets/ibm-plex-mono-cyrillic-ext-400-normal-xuaO2J-f.woff2
+File Name: C:\Downloaded Web Sites\atiers.net\assets\ibm-plex-mono-cyrillic-ext-400-normal-xuaO2J-f.woff2
+Content Type: font/woff2
+
+Uri: https://atiers.net/assets/ibm-plex-mono-cyrillic-ext-600-normal-9HEixskS.woff
+File Name: C:\Downloaded Web Sites\atiers.net\assets\ibm-plex-mono-cyrillic-ext-600-normal-9HEixskS.woff
+Content Type: font/woff
+
+Uri: https://atiers.net/assets/ibm-plex-mono-cyrillic-ext-600-normal-V-xxqcpd.woff2
+File Name: C:\Downloaded Web Sites\atiers.net\assets\ibm-plex-mono-cyrillic-ext-600-normal-V-xxqcpd.woff2
+Content Type: font/woff2
+
+Uri: https://atiers.net/assets/ibm-plex-mono-latin-400-normal-CvHOgSBP.woff
+File Name: C:\Downloaded Web Sites\atiers.net\assets\ibm-plex-mono-latin-400-normal-CvHOgSBP.woff
+Content Type: font/woff
+
+Uri: https://atiers.net/assets/ibm-plex-mono-latin-400-normal-DMJ8VG8y.woff2
+File Name: C:\Downloaded Web Sites\atiers.net\assets\ibm-plex-mono-latin-400-normal-DMJ8VG8y.woff2
+Content Type: font/woff2
+
+Uri: https://atiers.net/assets/ibm-plex-mono-latin-600-normal-BgSNZQsw.woff2
+File Name: C:\Downloaded Web Sites\atiers.net\assets\ibm-plex-mono-latin-600-normal-BgSNZQsw.woff2
+Content Type: font/woff2
+
+Uri: https://atiers.net/assets/ibm-plex-mono-latin-600-normal-DWFSQ4vo.woff
+File Name: C:\Downloaded Web Sites\atiers.net\assets\ibm-plex-mono-latin-600-normal-DWFSQ4vo.woff
+Content Type: font/woff
+
+Uri: https://atiers.net/assets/ibm-plex-mono-latin-ext-400-normal-BmRBH3aV.woff2
+File Name: C:\Downloaded Web Sites\atiers.net\assets\ibm-plex-mono-latin-ext-400-normal-BmRBH3aV.woff2
+Content Type: font/woff2
+
+Uri: https://atiers.net/assets/ibm-plex-mono-latin-ext-400-normal-D3D2R8hC.woff
+File Name: C:\Downloaded Web Sites\atiers.net\assets\ibm-plex-mono-latin-ext-400-normal-D3D2R8hC.woff
+Content Type: font/woff
+
+Uri: https://atiers.net/assets/ibm-plex-mono-latin-ext-600-normal-D38SheWl.woff2
+File Name: C:\Downloaded Web Sites\atiers.net\assets\ibm-plex-mono-latin-ext-600-normal-D38SheWl.woff2
+Content Type: font/woff2
+
+Uri: https://atiers.net/assets/ibm-plex-mono-latin-ext-600-normal-DmB0ttJJ.woff
+File Name: C:\Downloaded Web Sites\atiers.net\assets\ibm-plex-mono-latin-ext-600-normal-DmB0ttJJ.woff
+Content Type: font/woff
+
+Uri: https://atiers.net/assets/ibm-plex-mono-vietnamese-400-normal-BulugwFq.woff2
+File Name: C:\Downloaded Web Sites\atiers.net\assets\ibm-plex-mono-vietnamese-400-normal-BulugwFq.woff2
+Content Type: font/woff2
+
+Uri: https://atiers.net/assets/ibm-plex-mono-vietnamese-400-normal-DDuiU_S-.woff
+File Name: C:\Downloaded Web Sites\atiers.net\assets\ibm-plex-mono-vietnamese-400-normal-DDuiU_S-.woff
+Content Type: font/woff
+
+Uri: https://atiers.net/assets/ibm-plex-mono-vietnamese-600-normal-D2EvbN8M.woff2
+File Name: C:\Downloaded Web Sites\atiers.net\assets\ibm-plex-mono-vietnamese-600-normal-D2EvbN8M.woff2
+Content Type: font/woff2
+
+Uri: https://atiers.net/assets/ibm-plex-mono-vietnamese-600-normal-iLQfcSjf.woff
+File Name: C:\Downloaded Web Sites\atiers.net\assets\ibm-plex-mono-vietnamese-600-normal-iLQfcSjf.woff
+Content Type: font/woff
+
+Uri: https://atiers.net/assets/index-BD0ShlUA.css
+File Name: C:\Downloaded Web Sites\atiers.net\assets\index-BD0ShlUA.css
+Content Type: text/css
+
+Uri: https://atiers.net/assets/index-DTzQHv6u.js
+File Name: C:\Downloaded Web Sites\atiers.net\assets\index-DTzQHv6u.js
+Content Type: application/javascript
+
+Uri: https://atiers.net/assets/kenpixel-DRwocfGq.ttf
+File Name: C:\Downloaded Web Sites\atiers.net\assets\kenpixel-DRwocfGq.ttf
+Content Type: application/octet-stream
+
+Uri: https://atiers.net/assets/Minecraft-BJbhPgs9.woff2
+File Name: C:\Downloaded Web Sites\atiers.net\assets\Minecraft-BJbhPgs9.woff2
+Content Type: font/woff2
+
+Uri: https://atiers.net/assets/orbitron-latin-700-normal-4jsRXGGJ.woff2
+File Name: C:\Downloaded Web Sites\atiers.net\assets\orbitron-latin-700-normal-4jsRXGGJ.woff2
+Content Type: font/woff2
+
+Uri: https://atiers.net/assets/orbitron-latin-700-normal-DmYOh-W9.woff
+File Name: C:\Downloaded Web Sites\atiers.net\assets\orbitron-latin-700-normal-DmYOh-W9.woff
+Content Type: font/woff
+
+Uri: https://atiers.net/assets/orbitron-latin-800-normal-CQafOXEd.woff2
+File Name: C:\Downloaded Web Sites\atiers.net\assets\orbitron-latin-800-normal-CQafOXEd.woff2
+Content Type: font/woff2
+
+Uri: https://atiers.net/assets/orbitron-latin-800-normal-P4cBi4I7.woff
+File Name: C:\Downloaded Web Sites\atiers.net\assets\orbitron-latin-800-normal-P4cBi4I7.woff
+Content Type: font/woff
+
+Uri: https://atiers.net/assets/rajdhani-devanagari-600-normal-BtY48IV_.woff
+File Name: C:\Downloaded Web Sites\atiers.net\assets\rajdhani-devanagari-600-normal-BtY48IV_.woff
+Content Type: font/woff
+
+Uri: https://atiers.net/assets/rajdhani-devanagari-600-normal-DhS7ScYx.woff2
+File Name: C:\Downloaded Web Sites\atiers.net\assets\rajdhani-devanagari-600-normal-DhS7ScYx.woff2
+Content Type: font/woff2
+
+Uri: https://atiers.net/assets/rajdhani-latin-600-normal-CXCVEoA9.woff2
+File Name: C:\Downloaded Web Sites\atiers.net\assets\rajdhani-latin-600-normal-CXCVEoA9.woff2
+Content Type: font/woff2
+
+Uri: https://atiers.net/assets/rajdhani-latin-600-normal-Dx02qI2_.woff
+File Name: C:\Downloaded Web Sites\atiers.net\assets\rajdhani-latin-600-normal-Dx02qI2_.woff
+Content Type: font/woff
+
+Uri: https://atiers.net/assets/rajdhani-latin-ext-600-normal-BleIgkPp.woff
+File Name: C:\Downloaded Web Sites\atiers.net\assets\rajdhani-latin-ext-600-normal-BleIgkPp.woff
+Content Type: font/woff
+
+Uri: https://atiers.net/assets/rajdhani-latin-ext-600-normal-C9ZjJQAt.woff2
+File Name: C:\Downloaded Web Sites\atiers.net\assets\rajdhani-latin-ext-600-normal-C9ZjJQAt.woff2
+Content Type: font/woff2
+
+Uri: https://atiers.net/assets/rolldown-runtime-COnpUsM8.js
+File Name: C:\Downloaded Web Sites\atiers.net\assets\rolldown-runtime-COnpUsM8.js
+Content Type: application/javascript
+
+Uri: https://atiers.net/assets/utils-Dkgpe5Q8.js
+File Name: C:\Downloaded Web Sites\atiers.net\assets\utils-Dkgpe5Q8.js
+Content Type: application/javascript
+
+Uri: https://atiers.net/assets/vendor-icons-B2X1nEJb.js
+File Name: C:\Downloaded Web Sites\atiers.net\assets\vendor-icons-B2X1nEJb.js
+Content Type: application/javascript
+
+Uri: https://atiers.net/assets/vendor-motion-Dqj7XT6q.js
+File Name: C:\Downloaded Web Sites\atiers.net\assets\vendor-motion-Dqj7XT6q.js
+Content Type: application/javascript
+
+Uri: https://atiers.net/assets/vendor-query-D1iMjanz.js
+File Name: C:\Downloaded Web Sites\atiers.net\assets\vendor-query-D1iMjanz.js
+Content Type: application/javascript
+
+Uri: https://atiers.net/assets/vendor-react-9NLl0NGd.js
+File Name: C:\Downloaded Web Sites\atiers.net\assets\vendor-react-9NLl0NGd.js
+Content Type: application/javascript
+
+Uri: https://atiers.net/favicon.png
+File Name: C:\Downloaded Web Sites\atiers.net\favicon.png
+Content Type: image/png
+
+Uri: https://atiers.net/guide
+File Name: C:\Downloaded Web Sites\atiers.net\guide.html
+Content Type: text/html
+
+Uri: https://atiers.net/logo.png
+File Name: C:\Downloaded Web Sites\atiers.net\logo.png
+Content Type: image/png
+
+Uri: https://atiers.net/manifest.json
+File Name: C:\Downloaded Web Sites\atiers.net\manifest.json
+Content Type: application/json
+
+Uri: https://atiers.net/queue
+File Name: C:\Downloaded Web Sites\atiers.net\queue.html
+Content Type: text/html
+
+Uri: https://atiers.net/staff
+File Name: C:\Downloaded Web Sites\atiers.net\staff.html
+Content Type: text/html
+
+Uri: https://atiers.net/tournaments
+File Name: C:\Downloaded Web Sites\atiers.net\tournaments.html
+Content Type: text/html
+
+Uri: https://atiers.net/wiki
+File Name: C:\Downloaded Web Sites\atiers.net\wiki.html
+Content Type: text/html
+
+Uri: https://atiers.net/wiki/AXE
+File Name: C:\Downloaded Web Sites\atiers.net\wiki\AXE.html
+Content Type: text/html
+
+Uri: https://atiers.net/wiki/CREEPER
+File Name: C:\Downloaded Web Sites\atiers.net\wiki\CREEPER.html
+Content Type: text/html
+
+Uri: https://atiers.net/wiki/DSMP
+File Name: C:\Downloaded Web Sites\atiers.net\wiki\DSMP.html
+Content Type: text/html
+
+Uri: https://atiers.net/wiki/MACE
+File Name: C:\Downloaded Web Sites\atiers.net\wiki\MACE.html
+Content Type: text/html
+
+Uri: https://atiers.net/wiki/NPOT
+File Name: C:\Downloaded Web Sites\atiers.net\wiki\NPOT.html
+Content Type: text/html
+
+Uri: https://atiers.net/wiki/OP
+File Name: C:\Downloaded Web Sites\atiers.net\wiki\OP.html
+Content Type: text/html
+
+Uri: https://atiers.net/wiki/SHLD
+File Name: C:\Downloaded Web Sites\atiers.net\wiki\SHLD.html
+Content Type: text/html
+
+Uri: https://atiers.net/wiki/SMP
+File Name: C:\Downloaded Web Sites\atiers.net\wiki\SMP.html
+Content Type: text/html
+
+Uri: https://atiers.net/wiki/SWORD
+File Name: C:\Downloaded Web Sites\atiers.net\wiki\SWORD.html
+Content Type: text/html
+
+Uri: https://atiers.net/wiki/UHC
+File Name: C:\Downloaded Web Sites\atiers.net\wiki\UHC.html
+Content Type: text/html
+
+Uri: https://mc.yandex.ru/watch/109200697
+File Name: C:\Downloaded Web Sites\atiers.net\watch\109200697
+Content Type: image/gif
+
+Uri: https://www.googletagmanager.com/gtag/js?id=G-L6V4VK2YKG
+File Name: C:\Downloaded Web Sites\atiers.net\gtag\js
+Content Type: application/javascript
+
