@@ -1,0 +1,1448 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HT1TIERS — Minecraft PvP Community</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%232b1a0e'/%3E%3Crect width='16' height='4' fill='%234fa83a'/%3E%3Crect x='3' y='6' width='10' height='7' fill='%2314532d'/%3E%3Ctext x='8' y='11.9' font-family='monospace' font-size='4.6' font-weight='bold' fill='%23a3e635' text-anchor='middle'%3EHT1%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Press+Start+2P&family=VT323&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #06110a;
+      --card-bg: rgba(13, 34, 21, 0.88);
+      --card-border: rgba(134, 239, 172, 0.18);
+      --primary: #22c55e;
+      --primary-hover: #16a34a;
+      --accent: #a3e635;
+      --text: #ecfdf3;
+      --text-muted: #8fbf9f;
+      --dirt: #6b4a2f;
+      --grass: #4fa83a;
+      --mc-shadow: 4px 4px 0 0 rgba(0,0,0,0.55);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(circle at 15% 18%, rgba(34, 197, 94, 0.20) 0%, transparent 42%),
+        radial-gradient(circle at 85% 65%, rgba(163, 230, 53, 0.14) 0%, transparent 45%),
+        radial-gradient(circle at 50% 100%, rgba(20, 184, 166, 0.12) 0%, transparent 55%),
+        linear-gradient(to bottom, #04100a, #071a0e);
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      line-height: 1.5;
+      image-rendering: pixelated;
+    }
+
+    .mc { font-family: 'Press Start 2P', monospace; letter-spacing: 0; line-height: 1.6; }
+    .px { font-family: 'Inter', sans-serif; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    /* ---------- HEADER ---------- */
+    header {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      border-bottom: 4px solid rgba(34, 197, 94, 0.28);
+      background-image: linear-gradient(rgba(34,197,94,0.08), transparent);
+    }
+
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+
+    .logo-mark {
+      width: 52px;
+      height: 52px;
+      display: block;
+      image-rendering: pixelated;
+      filter: drop-shadow(3px 3px 0 rgba(0,0,0,0.55));
+    }
+
+    .logo-text { display: flex; flex-direction: column; gap: 6px; }
+
+    .logo-text .name {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.05rem;
+      color: #d9fbe5;
+      text-shadow: 3px 3px 0 #14532d;
+      letter-spacing: 1px;
+    }
+
+    .logo-badge {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      padding: 2px 8px;
+      background: rgba(34, 197, 94, 0.18);
+      border: 2px solid rgba(34, 197, 94, 0.5);
+      color: #86efac;
+      width: fit-content;
+    }
+
+    /* ---------- BUTTONS ---------- */
+    .btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      background: #1c3a26;
+      border: 3px solid #2f5c3d;
+      border-bottom-color: #0e2216;
+      border-right-color: #0e2216;
+      color: #e4fbe9;
+      padding: 8px 16px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform .08s, background .15s;
+      text-transform: uppercase;
+    }
+
+    .btn:hover { background: #26533a; }
+    .btn:active { transform: translate(2px, 2px); border-color: #0e2216 #2f5c3d #2f5c3d #0e2216; }
+
+    .btn-primary { background: var(--primary); border-color: #4ade80 #15803d #15803d #4ade80; color: #05230f; font-weight: 700; }
+    .btn-primary:hover { background: var(--primary-hover); }
+
+    .btn-danger { background: #4a1d1d; border-color: #7f2c2c #2b0f0f #2b0f0f #7f2c2c; color: #fecaca; }
+    .btn-danger:hover { background: #642323; }
+
+    .btn-sm { font-size: 0.75rem; padding: 5px 10px; border-width: 2px; gap: 5px; }
+
+    /* --- NEW: header search button --- */
+    .btn-search {
+      background: rgba(34, 197, 94, 0.16);
+      border-color: #4ade80 #15803d #15803d #4ade80;
+      color: #d9fbe5;
+    }
+    .btn-search:hover { background: rgba(34, 197, 94, 0.3); }
+    .btn-search svg { width: 15px; height: 15px; flex: 0 0 auto; }
+    .btn-search .kbd {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 1px 5px;
+      border: 1px solid rgba(134, 239, 172, 0.35);
+      background: rgba(0, 0, 0, 0.35);
+      color: #86efac;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero { text-align: center; padding: 56px 0 32px; }
+
+    .community-tag {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #86efac;
+      background: rgba(34, 197, 94, 0.12);
+      padding: 4px 14px;
+      border: 2px solid rgba(34, 197, 94, 0.35);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(1.4rem, 4.2vw, 2.6rem);
+      line-height: 1.5;
+      color: #f0fdf4;
+      text-shadow: 4px 4px 0 #14532d, 8px 8px 0 rgba(0,0,0,0.35);
+      margin-bottom: 22px;
+    }
+
+    .hero h1 .hl { color: #a3e635; }
+
+    .hero p { max-width: 620px; margin: 0 auto 32px; color: var(--text-muted); font-size: 1.05rem; }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 3px solid var(--card-border);
+      border-bottom-color: rgba(0,0,0,0.6);
+      border-right-color: rgba(0,0,0,0.6);
+      padding: 18px;
+      text-align: center;
+      position: relative;
+    }
+
+    .stat-card .val {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.6rem;
+      color: #a3e635;
+      text-shadow: 2px 2px 0 #14532d;
+    }
+
+    .stat-card .lbl {
+      color: var(--text-muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-top: 10px;
+    }
+
+    .ad-banner {
+      background:
+        repeating-linear-gradient(45deg, rgba(34,197,94,0.08) 0 10px, transparent 10px 20px),
+        #0f2417;
+      border: 3px solid rgba(163, 230, 53, 0.35);
+      padding: 16px 20px;
+      margin-bottom: 44px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .ad-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    .ad-desc {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.7rem;
+      line-height: 1.8;
+      color: #eafff0;
+      margin-top: 8px;
+    }
+
+    .ad-badge {
+      background: rgba(0, 0, 0, 0.4);
+      border: 2px dashed rgba(163, 230, 53, 0.5);
+      padding: 6px 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: #d9fbe5;
+    }
+
+    /* ---------- SECTION HEAD ---------- */
+    .section-head {
+      margin-bottom: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .section-head .sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #86efac;
+      letter-spacing: 3px;
+    }
+
+    .section-head h2 {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      text-shadow: 3px 3px 0 #14532d;
+      margin-top: 6px;
+    }
+
+    .controls-bar { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    /* ---------- KITS TABS ---------- */
+    .kits-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 22px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
+
+    .kit-tab {
+      background: var(--card-bg);
+      border: 3px solid var(--card-border);
+      border-bottom-color: rgba(0,0,0,0.6);
+      border-right-color: rgba(0,0,0,0.6);
+      color: var(--text-muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 8px 12px;
+      cursor: pointer;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all .15s;
+      text-transform: uppercase;
+    }
+
+    .kit-tab:hover { color: #fff; border-color: rgba(134, 239, 172, 0.45); }
+    .kit-tab.active {
+      background: rgba(34, 197, 94, 0.22);
+      border-color: #22c55e;
+      color: #fff;
+    }
+
+    .kit-icon {
+      width: 20px;
+      height: 20px;
+      image-rendering: pixelated;
+      flex: 0 0 auto;
+      display: inline-block;
+      vertical-align: -4px;
+    }
+
+    /* ---------- TABLE ---------- */
+    .table-container {
+      background: var(--card-bg);
+      border: 3px solid var(--card-border);
+      border-bottom-color: rgba(0,0,0,0.7);
+      border-right-color: rgba(0,0,0,0.7);
+      overflow-x: auto;
+      margin-bottom: 44px;
+    }
+
+    table { width: 100%; border-collapse: collapse; text-align: left; }
+
+    th, td { padding: 14px 18px; border-bottom: 2px solid rgba(134, 239, 172, 0.1); }
+
+    th {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #86efac;
+      background: rgba(0, 0, 0, 0.35);
+      white-space: nowrap;
+    }
+
+    th .kit-icon { width: 18px; height: 18px; margin-right: 6px; }
+
+    tr:last-child td { border-bottom: none; }
+    tbody tr { cursor: pointer; transition: background .15s; }
+    tbody tr:hover { background: rgba(34, 197, 94, 0.09); }
+
+    .player-cell { display: flex; align-items: center; gap: 12px; font-weight: 700; }
+
+    .player-avatar, .modal-avatar {
+      background: #0e1f15;
+      border: 2px solid rgba(134, 239, 172, 0.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      image-rendering: pixelated;
+    }
+
+    .player-avatar { width: 40px; height: 40px; flex: 0 0 auto; }
+    .player-avatar img { width: 100%; height: 100%; object-fit: contain; image-rendering: pixelated; }
+
+    .av-fallback {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.7rem;
+      color: #a3e635;
+    }
+
+    .rank-num { font-family: 'Press Start 2P', monospace; font-size: 0.72rem; color: var(--text-muted); }
+
+    .rank-1 { color: #a3e635; text-shadow: 2px 2px 0 #3f6212; }
+    .rank-2 { color: #e2e8f0; }
+    .rank-3 { color: #d6a06b; }
+
+    .tier-badge {
+      display: inline-block;
+      padding: 3px 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .tier-HT1 { background: rgba(34, 197, 94, 0.26); color: #86efac; border-color: rgba(34, 197, 94, 0.65); }
+    .tier-LT1 { background: rgba(74, 222, 128, 0.16); color: #a7f3c4; border-color: rgba(74, 222, 128, 0.48); }
+    .tier-HT2 { background: rgba(20, 184, 166, 0.16); color: #5eead4; border-color: rgba(20, 184, 166, 0.5); }
+    .tier-LT2 { background: rgba(45, 212, 191, 0.13); color: #99f6e4; border-color: rgba(45, 212, 191, 0.4); }
+    .tier-HT3 { background: rgba(132, 204, 22, 0.18); color: #bef264; border-color: rgba(132, 204, 22, 0.52); }
+    .tier-LT3 { background: rgba(163, 230, 53, 0.12); color: #d9f99d; border-color: rgba(163, 230, 53, 0.4); }
+    .tier-HT4 { background: rgba(234, 179, 8, 0.16); color: #fde68a; border-color: rgba(234, 179, 8, 0.5); }
+    .tier-LT4 { background: rgba(250, 204, 21, 0.12); color: #fef08a; border-color: rgba(250, 204, 21, 0.4); }
+    .tier-HT5 { background: rgba(168, 162, 158, 0.16); color: #d6d3d1; border-color: rgba(168, 162, 158, 0.45); }
+    .tier-LT5 { background: rgba(120, 113, 108, 0.16); color: #a8a29e; border-color: rgba(120, 113, 108, 0.45); }
+    .tier-— { color: #8fbf9f; }
+
+    .score-val { font-family: 'Press Start 2P', monospace; font-size: 0.78rem; color: #a3e635; }
+
+    /* ---------- MODAL ---------- */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(3, 12, 7, 0.85);
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px; z-index: 1000;
+      opacity: 0; pointer-events: none;
+      transition: opacity .2s ease;
+    }
+
+    .modal-overlay.active { opacity: 1; pointer-events: all; }
+
+    .modal-card {
+      background: #0c1d13;
+      border: 4px solid #22c55e;
+      border-bottom-color: #14532d;
+      border-right-color: #14532d;
+      width: 100%; max-width: 520px;
+      padding: 26px;
+      position: relative;
+      box-shadow: 8px 8px 0 rgba(0,0,0,0.6);
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+
+    .modal-close {
+      position: absolute; top: 14px; right: 14px;
+      background: #1c3a26; border: 2px solid #2f5c3d;
+      width: 32px; height: 32px;
+      color: #d9fbe5; cursor: pointer;
+      font-family: 'Inter', sans-serif; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .modal-close:hover { background: #26533a; }
+
+    .modal-badge {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #86efac;
+      margin-bottom: 16px;
+    }
+
+    .modal-profile-header { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
+
+    .modal-avatar { width: 76px; height: 96px; flex: 0 0 auto; }
+    .modal-avatar img { width: 100%; height: 100%; object-fit: contain; image-rendering: pixelated; }
+
+    .modal-title h3 {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1rem; line-height: 1.5;
+      text-transform: uppercase;
+      word-break: break-word;
+    }
+
+    .modal-title p {
+      color: var(--text-muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-top: 8px;
+    }
+
+    .modal-section-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #86efac;
+      margin-bottom: 10px;
+    }
+
+    .modal-tiers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 22px; }
+
+    .modal-tier-item {
+      background: rgba(34, 197, 94, 0.06);
+      border: 2px solid rgba(134, 239, 172, 0.16);
+      padding: 8px 12px;
+      display: flex; justify-content: space-between; align-items: center; gap: 8px;
+    }
+
+    .modal-tier-item .kit-name {
+      display: flex; align-items: center; gap: 6px;
+      font-family: 'Inter', sans-serif; font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted); letter-spacing: 0.5px;
+    }
+
+    .modal-history {
+      background: rgba(0,0,0,0.25);
+      border: 2px dashed rgba(134, 239, 172, 0.22);
+      padding: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: #a7c7b2;
+      line-height: 1.8;
+    }
+
+    /* ---------- ADMIN ---------- */
+    .admin-panel, .admin-manage {
+      display: none;
+      background: var(--card-bg);
+      border: 3px solid rgba(34, 197, 94, 0.4);
+      padding: 22px;
+      margin-bottom: 24px;
+    }
+
+    .admin-panel.open, .admin-manage.open { display: block; }
+    .admin-manage { border-color: rgba(220, 90, 90, 0.45); }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #86efac;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      border: 2px solid rgba(134, 239, 172, 0.2);
+      padding: 8px 10px;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .form-group input:focus, .form-group select:focus { border-color: #22c55e; }
+
+    .manage-list { display: flex; flex-direction: column; gap: 10px; }
+
+    .manage-row {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; flex-wrap: wrap;
+      background: rgba(0, 0, 0, 0.3);
+      border: 2px solid rgba(134, 239, 172, 0.14);
+      padding: 10px 14px;
+    }
+
+    .manage-player { display: flex; align-items: center; gap: 12px; font-weight: 700; min-width: 180px; }
+
+    .manage-meta {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    .manage-empty, .filter-empty {
+      color: var(--text-muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      padding: 24px 8px;
+      text-align: center;
+    }
+
+    .filter-empty { cursor: default; }
+
+    .admin-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+
+    .hint { color: var(--text-muted); font-size: 0.85rem; margin-top: 6px; }
+
+    footer {
+      border-top: 4px solid rgba(34, 197, 94, 0.18);
+      padding: 24px 0 32px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    }
+
+    footer .grass-line {
+      height: 6px;
+      background: repeating-linear-gradient(90deg, #4fa83a 0 6px, #3d8a2c 6px 12px);
+    }
+
+    /* ---------- SEARCH WIDGET (низ справа) ---------- */
+    .search-fab {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 900;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #1c3a26;
+      border: 3px solid #2f5c3d;
+      border-bottom-color: #0e2216;
+      border-right-color: #0e2216;
+      color: #d9fbe5;
+      cursor: pointer;
+      transition: background .15s, transform .1s;
+    }
+
+    .search-fab:hover { background: #26533a; }
+    .search-fab:active { transform: translate(2px, 2px); }
+    .search-fab svg { width: 24px; height: 24px; }
+
+    .search-panel {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 901;
+      width: min(340px, calc(100vw - 32px));
+      background: #0c1d13;
+      border: 4px solid #22c55e;
+      border-bottom-color: #14532d;
+      border-right-color: #14532d;
+      box-shadow: 8px 8px 0 rgba(0,0,0,0.6);
+      padding: 14px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px) scale(0.98);
+      transition: opacity .18s ease, transform .18s ease;
+    }
+
+    .search-panel.open { opacity: 1; pointer-events: auto; transform: translateY(0) scale(1); }
+
+    .search-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .search-head-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #86efac;
+    }
+
+    .search-close {
+      background: #1c3a26;
+      border: 2px solid #2f5c3d;
+      width: 26px;
+      height: 26px;
+      color: #d9fbe5;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+    }
+
+    .search-close:hover { background: #26533a; }
+
+    .search-input {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      border: 2px solid rgba(134, 239, 172, 0.25);
+      padding: 9px 11px;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .search-input::placeholder { color: #6f9d80; }
+    .search-input:focus { border-color: #22c55e; }
+
+    .search-results {
+      margin-top: 10px;
+      max-height: 240px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .search-result {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 9px;
+      background: rgba(0, 0, 0, 0.32);
+      border: 2px solid rgba(134, 239, 172, 0.14);
+      cursor: pointer;
+      text-align: left;
+      width: 100%;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      transition: background .15s, border-color .15s;
+    }
+
+    .search-result:hover,
+    .search-result.active { background: rgba(34, 197, 94, 0.16); border-color: rgba(34, 197, 94, 0.6); }
+
+    .search-result .player-avatar { width: 30px; height: 30px; }
+
+    .search-result-meta {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .search-result-rank {
+      margin-left: auto;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #a3e635;
+      white-space: nowrap;
+    }
+
+    .search-empty {
+      padding: 14px 6px;
+      text-align: center;
+      color: var(--text-muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 640px) {
+      .modal-tiers-grid { grid-template-columns: 1fr; }
+      .logo-mark { width: 44px; height: 44px; }
+      .logo-text .name { font-size: 0.85rem; }
+      .search-fab { right: 14px; bottom: 14px; width: 50px; height: 50px; }
+      .search-panel { right: 14px; bottom: 14px; }
+      .btn-search .kbd { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <a class="logo" href="#">
+        <svg class="logo-mark" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-label="HT1 logo">
+          <rect width="16" height="16" fill="#2b1a0e"/>
+          <rect x="0" y="0" width="16" height="4" fill="#4fa83a"/>
+          <rect x="0" y="0" width="16" height="1" fill="#63c24a"/>
+          <rect x="0" y="4" width="16" height="1" fill="#2f6b23"/>
+          <rect x="1" y="5" width="14" height="10" fill="#6b4a2f"/>
+          <rect x="2" y="6" width="3" height="2" fill="#7d5738"/>
+          <rect x="11" y="9" width="3" height="2" fill="#5a3d26"/>
+          <rect x="4" y="10" width="2" height="2" fill="#5a3d26"/>
+          <rect x="9" y="7" width="2" height="2" fill="#7d5738"/>
+          <rect x="3" y="6" width="10" height="7" fill="#14532d"/>
+          <rect x="3" y="6" width="10" height="1" fill="#22c55e"/>
+          <rect x="3" y="12" width="10" height="1" fill="#0b2d18"/>
+          <text x="8" y="11.9" font-family="monospace" font-size="4.6" font-weight="bold" fill="#a3e635" text-anchor="middle" letter-spacing="-0.3">HT1</text>
+        </svg>
+        <div class="logo-text">
+          <div class="name">HT1TIERS</div>
+          <span class="logo-badge">PvP COMMUNITY</span>
+        </div>
+      </a>
+
+      <div class="controls-bar">
+        <!-- NEW: кнопка поиска игрока в шапке -->
+        <button type="button" class="btn btn-search" id="headerSearchBtn" aria-label="Поиск игрока">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="square" aria-hidden="true">
+            <circle cx="10.5" cy="10.5" r="6.5"/>
+            <line x1="15.5" y1="15.5" x2="21" y2="21"/>
+          </svg>
+          Поиск игрока
+          <span class="kbd">Ctrl K</span>
+        </button>
+        <button type="button" class="btn" id="toggleAdminBtn">⚙ Режим управления</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="community-tag">Minecraft PvP Community</div>
+      <h1>ДОКАЖИ, ЧТО ТЫ<br><span class="hl">ЛУЧШИЙ В PVP</span></h1>
+      <p>
+        HT1TIERS — тир-лист игроков Minecraft по популярным PvP-китам.
+        Кликай на любого игрока, чтобы открыть его карточку со всеми тирами.
+      </p>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="val" id="statKits">6</div>
+          <div class="lbl">PvP-китов</div>
+        </div>
+        <div class="stat-card">
+          <div class="val">10</div>
+          <div class="lbl">Уровней тиров</div>
+        </div>
+        <div class="stat-card">
+          <div class="val" id="statPlayers">0</div>
+          <div class="lbl">Игроков в рейтинге</div>
+        </div>
+      </div>
+
+      <div class="ad-banner">
+        <div>
+          <div class="ad-title">Реклама · партнёр сообщества</div>
+          <div class="ad-desc">FAMOUSVISUALS — БОЛЬШЕ СТИЛЯ В ИГРЕ</div>
+        </div>
+        <div class="ad-badge">Промокод: <strong>HT1TIERS</strong></div>
+      </div>
+    </section>
+
+    <!-- Admin: add player -->
+    <div class="admin-panel" id="adminPanel">
+      <div class="section-head">
+        <div>
+          <div class="sub">Панель администратора</div>
+          <h2>ДОБАВИТЬ ИГРОКА</h2>
+        </div>
+      </div>
+      <form id="addPlayerForm">
+        <div class="form-grid">
+          <div class="form-group" style="grid-column: span 2;">
+            <label>Никнейм игрока (Minecraft)</label>
+            <input type="text" id="pNick" placeholder="Например: STRAFIKK" required>
+          </div>
+          <div class="form-group"><label>Npot</label><select id="pTierNpot"></select></div>
+          <div class="form-group"><label>Sword</label><select id="pTierSword"></select></div>
+          <div class="form-group"><label>Op</label><select id="pTierOp"></select></div>
+          <div class="form-group"><label>Dpot</label><select id="pTierDpot"></select></div>
+          <div class="form-group"><label>Mace</label><select id="pTierMace"></select></div>
+          <div class="form-group"><label>Crystal</label><select id="pTierCrystal"></select></div>
+        </div>
+        <button type="submit" class="btn btn-primary">+ Добавить игрока в базу</button>
+      </form>
+    </div>
+
+    <!-- Admin: manage / delete players -->
+    <div class="admin-manage" id="adminManage">
+      <div class="section-head">
+        <div>
+          <div class="sub">Панель администратора</div>
+          <h2>УДАЛИТЬ ИГРОКА</h2>
+          <p class="hint">Удаление убирает игрока из тир-листа и пересчитывает рейтинг</p>
+        </div>
+      </div>
+      <div class="manage-list" id="manageList"></div>
+      <div class="admin-actions">
+        <button type="button" class="btn btn-danger btn-sm" id="clearAllBtn">Очистить тир-лист</button>
+        <button type="button" class="btn btn-sm" id="resetDataBtn">Сбросить к демо-данным</button>
+      </div>
+    </div>
+
+    <!-- Rating Section -->
+    <section>
+      <div class="section-head">
+        <div>
+          <div class="sub">Лидеры сообщества</div>
+          <h2>РЕЙТИНГ ИГРОКОВ</h2>
+          <p class="hint">Нажми на строку любого игрока для подробной статистики</p>
+        </div>
+      </div>
+
+      <div class="kits-tabs" id="filterTabs">
+        <button type="button" class="kit-tab active" data-filter="all" aria-pressed="true">
+          <svg class="kit-icon" viewBox="0 0 16 16" aria-hidden="true"><rect width="16" height="16" fill="#3f6212"/><rect x="2" y="2" width="5" height="5" fill="#a3e635"/><rect x="9" y="2" width="5" height="5" fill="#84cc16"/><rect x="2" y="9" width="5" height="5" fill="#65a30d"/><rect x="9" y="9" width="5" height="5" fill="#a3e635"/></svg>
+          Все киты
+        </button>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 70px;">Место</th>
+              <th>Игрок</th>
+              <th id="thNpot"></th>
+              <th id="thSword"></th>
+              <th id="thOp"></th>
+              <th id="thDpot"></th>
+              <th id="thMace"></th>
+              <th id="thCrystal"></th>
+              <th style="text-align: right;">Очки</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboardBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      <span>HT1TIERS © 2026 · Сделано на зелёном редстоуне</span>
+      <span>Minecraft PvP Tierlist</span>
+    </footer>
+  </div>
+
+  <!-- Player Profile Modal -->
+  <div class="modal-overlay" id="playerModal">
+    <div class="modal-card">
+      <button type="button" class="modal-close" id="modalClose">✕</button>
+      <div class="modal-badge">HT1TIERS.RU</div>
+
+      <div class="modal-profile-header">
+        <div class="modal-avatar" id="mAvatar"></div>
+        <div class="modal-title">
+          <h3 id="mNick">STRAFIKK</h3>
+          <p id="mScoreSub">#1 · OVERALL (222 очка)</p>
+        </div>
+      </div>
+
+      <div class="modal-section-title">Тиры по китам</div>
+      <div class="modal-tiers-grid" id="mTiersGrid"></div>
+
+      <div class="modal-section-title">История тиров</div>
+      <div class="modal-history" id="mHistory"></div>
+
+      <button type="button" class="btn btn-danger btn-sm" id="modalDeleteBtn" style="margin-top: 20px; display: none;">
+        Удалить игрока из тир-листа
+      </button>
+    </div>
+  </div>
+
+  <!-- Search widget (bottom right) -->
+  <button type="button" class="search-fab" id="searchFab" aria-label="Поиск игрока" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" aria-hidden="true">
+      <circle cx="10.5" cy="10.5" r="6.5"/>
+      <line x1="15.5" y1="15.5" x2="21" y2="21"/>
+    </svg>
+  </button>
+
+  <div class="search-panel" id="searchPanel" role="dialog" aria-label="Поиск игрока">
+    <div class="search-head">
+      <span class="search-head-title">Поиск игрока</span>
+      <button type="button" class="search-close" id="searchClose" aria-label="Закрыть поиск">✕</button>
+    </div>
+    <input type="text" class="search-input" id="searchInput" placeholder="Введи ник игрока…" autocomplete="off" spellcheck="false">
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <script>
+    const KITS = ['npot', 'sword', 'op', 'dpot', 'mace', 'crystal'];
+    const KIT_LABELS = { npot: 'Npot', sword: 'Sword', op: 'Op', dpot: 'Dpot', mace: 'Mace', crystal: 'Crystal' };
+
+    const KIT_ICONS = {
+      npot: '<svg class="kit-icon" viewBox="0 0 16 16" aria-hidden="true"><rect width="16" height="16" fill="#3f2a17"/><rect x="5" y="2" width="6" height="4" fill="#e2e8f0"/><rect x="6" y="6" width="4" height="6" fill="#cbd5e1"/><rect x="6" y="12" width="4" height="2" fill="#94a3b8"/><rect x="3" y="7" width="2" height="2" fill="#a3e635"/><rect x="11" y="7" width="2" height="2" fill="#a3e635"/></svg>',
+      sword: '<svg class="kit-icon" viewBox="0 0 16 16" aria-hidden="true"><rect width="16" height="16" fill="#2b3a1c"/><path d="M12 2h2v2L7 11 5 9z" fill="#d1fae5"/><rect x="4" y="9" width="3" height="2" fill="#a3e635"/><rect x="2" y="11" width="3" height="3" fill="#6b4a2f"/><rect x="12" y="12" width="2" height="2" fill="#a3e635"/></svg>',
+      op: '<svg class="kit-icon" viewBox="0 0 16 16" aria-hidden="true"><rect width="16" height="16" fill="#1f2d16"/><rect x="3" y="5" width="10" height="7" fill="#94a3b8"/><rect x="3" y="5" width="10" height="2" fill="#cbd5e1"/><rect x="6" y="9" width="4" height="3" fill="#22c55e"/><rect x="1" y="6" width="2" height="5" fill="#6b4a2f"/><rect x="13" y="6" width="2" height="5" fill="#6b4a2f"/></svg>',
+      dpot: '<svg class="kit-icon" viewBox="0 0 16 16" aria-hidden="true"><rect width="16" height="16" fill="#2b1a0e"/><rect x="2" y="4" width="12" height="3" fill="#4ade80"/><rect x="2" y="9" width="12" height="3" fill="#22c55e"/><rect x="7" y="1" width="2" height="3" fill="#a3e635"/><rect x="2" y="7" width="12" height="2" fill="#14532d"/></svg>',
+      mace: '<svg class="kit-icon" viewBox="0 0 16 16" aria-hidden="true"><rect width="16" height="16" fill="#20291c"/><rect x="7" y="7" width="2" height="8" fill="#6b4a2f"/><rect x="4" y="2" width="8" height="6" fill="#94a3b8"/><rect x="5" y="3" width="6" height="2" fill="#cbd5e1"/><rect x="3" y="2" width="1" height="3" fill="#a3e635"/><rect x="12" y="5" width="1" height="3" fill="#a3e635"/></svg>',
+      crystal: '<svg class="kit-icon" viewBox="0 0 16 16" aria-hidden="true"><rect width="16" height="16" fill="#1d2a1a"/><path d="M8 2l3 4-3 8-3-8z" fill="#86efac"/><path d="M8 2l3 4-3 2z" fill="#d9fbe5"/><path d="M8 2L5 6l3 2z" fill="#4ade80"/><rect x="2" y="12" width="2" height="2" fill="#22c55e"/><rect x="13" y="11" width="2" height="2" fill="#a3e635"/></svg>'
+    };
+
+    const TIERS = ['HT1', 'LT1', 'HT2', 'LT2', 'HT3', 'LT3', 'HT4', 'LT4', 'HT5', 'LT5', '—'];
+    const TIER_SCORES = {
+      'HT1': 100, 'LT1': 80,
+      'HT2': 60,  'LT2': 50,
+      'HT3': 40,  'LT3': 30,
+      'HT4': 20,  'LT4': 15,
+      'HT5': 10,  'LT5': 5,
+      '—': 0
+    };
+
+    const STORAGE_KEY = 'ht1_players_green_v2';
+
+    const DEFAULT_PLAYERS = [
+      { id: 1, nick: 'STRAFIKK', tiers: { npot: 'HT1', sword: 'LT1', op: 'HT2', dpot: 'LT1', mace: 'HT3', crystal: 'LT2' } },
+      { id: 2, nick: 'doperz',   tiers: { npot: 'LT1', sword: 'HT1', op: 'LT2', dpot: 'HT2', mace: 'LT3', crystal: 'HT3' } },
+      { id: 3, nick: 'rexcool',  tiers: { npot: 'HT2', sword: 'LT2', op: 'HT1', dpot: 'LT3', mace: 'HT4', crystal: 'LT4' } }
+    ];
+
+    let players = [];
+    let activeFilter = 'all';
+    let adminMode = false;
+    let currentModalPlayerId = null;
+
+    /* ---------- скины Minecraft ---------- */
+    function isValidMcNick(nick) {
+      return /^[A-Za-z0-9_]{3,16}$/.test(nick);
+    }
+
+    function avatarHtml(nick) {
+      if (!isValidMcNick(nick)) {
+        return `<span class="av-fallback">${escapeHtml(nick.slice(0, 2).toUpperCase())}</span>`;
+      }
+      return `<img src="https://mc-heads.net/avatar/${encodeURIComponent(nick)}/80" alt="Скин ${escapeHtml(nick)}" loading="lazy">`;
+    }
+
+    /* ---------- storage ---------- */
+    function loadPlayers() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw === null) {
+          players = JSON.parse(JSON.stringify(DEFAULT_PLAYERS));
+          savePlayers();
+          return;
+        }
+        const parsed = JSON.parse(raw);
+        players = Array.isArray(parsed) ? parsed.map(normalizePlayer).filter(Boolean) : [];
+      } catch (err) {
+        players = JSON.parse(JSON.stringify(DEFAULT_PLAYERS));
+      }
+    }
+
+    function normalizePlayer(p, i) {
+      if (!p || typeof p !== 'object') return null;
+      const nick = String(p.nick || '').trim();
+      if (!nick) return null;
+      const tiers = {};
+      KITS.forEach(kit => {
+        const t = p.tiers && p.tiers[kit];
+        tiers[kit] = TIERS.includes(t) ? t : '—';
+      });
+      return { id: p.id != null ? p.id : Date.now() + i, nick: nick, tiers: tiers };
+    }
+
+    function savePlayers() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(players));
+      } catch (err) {
+        console.warn('Не удалось сохранить данные:', err);
+      }
+    }
+
+    function escapeHtml(str) {
+      return String(str).replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+    }
+
+    /* ---------- helpers ---------- */
+    function calculateScore(playerTiers) {
+      return KITS.reduce((sum, kit) => sum + (TIER_SCORES[playerTiers[kit]] || 0), 0);
+    }
+
+    function getRankedPlayers() {
+      return [...players].sort((a, b) => {
+        const diff = calculateScore(b.tiers) - calculateScore(a.tiers);
+        return diff !== 0 ? diff : a.nick.localeCompare(b.nick);
+      });
+    }
+
+    function tierBadge(tier) {
+      const safeTier = TIERS.includes(tier) ? tier : '—';
+      return `<span class="tier-badge tier-${safeTier}">${safeTier}</span>`;
+    }
+
+    function kitIcon(kit) { return KIT_ICONS[kit] || ''; }
+
+    /* ---------- init selects + tabs + table head ---------- */
+    function initSelects() {
+      ['pTierNpot', 'pTierSword', 'pTierOp', 'pTierDpot', 'pTierMace', 'pTierCrystal'].forEach(id => {
+        const select = document.getElementById(id);
+        if (!select) return;
+        select.innerHTML = TIERS.map(t => `<option value="${t}">${t}</option>`).join('');
+        select.value = '—';
+      });
+    }
+
+    function renderKitTabs() {
+      const tabs = document.getElementById('filterTabs');
+      const allTab = tabs.querySelector('[data-filter="all"]');
+      tabs.querySelectorAll('.kit-tab[data-filter]:not([data-filter="all"])').forEach(t => t.remove());
+
+      KITS.forEach(kit => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'kit-tab' + (activeFilter === kit ? ' active' : '');
+        btn.dataset.filter = kit;
+        btn.setAttribute('aria-pressed', activeFilter === kit ? 'true' : 'false');
+        btn.innerHTML = `${kitIcon(kit)}${KIT_LABELS[kit]}`;
+        tabs.appendChild(btn);
+      });
+
+      allTab.classList.toggle('active', activeFilter === 'all');
+      allTab.setAttribute('aria-pressed', activeFilter === 'all' ? 'true' : 'false');
+    }
+
+    function renderTableHead() {
+      KITS.forEach(kit => {
+        const th = document.getElementById('th' + kit.charAt(0).toUpperCase() + kit.slice(1));
+        if (th) th.innerHTML = `${kitIcon(kit)}${KIT_LABELS[kit]}`;
+      });
+    }
+
+    /* ---------- leaderboard ---------- */
+    function renderLeaderboard() {
+      const tbody = document.getElementById('leaderboardBody');
+      document.getElementById('statPlayers').textContent = players.length;
+
+      const ranked = getRankedPlayers();
+
+      if (ranked.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="9" class="filter-empty">Тир-лист пуст. Добавьте игрока в режиме управления.</td></tr>`;
+        return;
+      }
+
+      const rows = ranked.map((p, idx) => {
+        const score = calculateScore(p.tiers);
+        const rank = idx + 1;
+        const rankClass = idx === 0 ? 'rank-1' : idx === 1 ? 'rank-2' : idx === 2 ? 'rank-3' : '';
+        const isActive = activeFilter === 'all' || p.tiers[activeFilter] !== '—';
+
+        const cells = KITS.map(kit => {
+          const isFiltered = activeFilter === kit;
+          return `<td${isFiltered ? ' style="background: rgba(34,197,94,0.12);"' : ''}>${tierBadge(p.tiers[kit])}</td>`;
+        }).join('');
+
+        return `
+          <tr data-id="${escapeHtml(p.id)}"${isActive ? '' : ' style="opacity: 0.35;"'}>
+            <td><span class="rank-num ${rankClass}">#${rank}</span></td>
+            <td>
+              <div class="player-cell">
+                <div class="player-avatar">${avatarHtml(p.nick)}</div>
+                <div>${escapeHtml(p.nick)}</div>
+              </div>
+            </td>
+            ${cells}
+            <td style="text-align: right;"><span class="score-val">${score}</span></td>
+          </tr>`;
+      });
+
+      tbody.innerHTML = rows.join('');
+    }
+
+    /* ---------- modal ---------- */
+    function openPlayerModal(playerId) {
+      const ranked = getRankedPlayers();
+      const idx = ranked.findIndex(p => String(p.id) === String(playerId));
+      if (idx === -1) return;
+
+      const p = ranked[idx];
+      const rank = idx + 1;
+      const score = calculateScore(p.tiers);
+      currentModalPlayerId = p.id;
+
+      const avatarEl = document.getElementById('mAvatar');
+      avatarEl.innerHTML = isValidMcNick(p.nick)
+        ? `<img src="https://mc-heads.net/body/${encodeURIComponent(p.nick)}/right/96" alt="Скин ${escapeHtml(p.nick)}">`
+        : `<span class="av-fallback">${escapeHtml(p.nick.slice(0, 2).toUpperCase())}</span>`;
+
+      document.getElementById('mNick').textContent = p.nick;
+      document.getElementById('mScoreSub').textContent = `#${rank} · OVERALL (${score} очков)`;
+
+      document.getElementById('mTiersGrid').innerHTML = KITS.map(kit => `
+        <div class="modal-tier-item">
+          <span class="kit-name">${kitIcon(kit)}${KIT_LABELS[kit]}</span>
+          ${tierBadge(p.tiers[kit])}
+        </div>`).join('');
+
+      const bestKit = KITS.reduce((best, kit) => {
+        const s = TIER_SCORES[p.tiers[kit]] || 0;
+        return s > best.score ? { kit, score: s, tier: p.tiers[kit] } : best;
+      }, { kit: null, score: -1, tier: null });
+
+      const historyLines = ['• Зарегистрирован в системе HT1TIERS'];
+      if (bestKit.kit && bestKit.score > 0) {
+        historyLines.push(`• Лучший кит: ${KIT_LABELS[bestKit.kit]} — ${bestKit.tier}`);
+      } else {
+        historyLines.push('• Тиры ещё не выставлены');
+      }
+      document.getElementById('mHistory').innerHTML = historyLines.map(escapeHtml).join('<br>');
+
+      document.getElementById('modalDeleteBtn').style.display = adminMode ? 'inline-flex' : 'none';
+      document.getElementById('playerModal').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('playerModal').classList.remove('active');
+      currentModalPlayerId = null;
+    }
+
+    /* ---------- admin: manage list ---------- */
+    function renderManageList() {
+      const list = document.getElementById('manageList');
+      const ranked = getRankedPlayers();
+
+      if (ranked.length === 0) {
+        list.innerHTML = `<div class="manage-empty">В тир-листе нет игроков.</div>`;
+        return;
+      }
+
+      list.innerHTML = ranked.map((p, idx) => `
+        <div class="manage-row">
+          <div class="manage-player">
+            <div class="player-avatar">${avatarHtml(p.nick)}</div>
+            <div>
+              ${escapeHtml(p.nick)}
+              <div class="manage-meta">#${idx + 1} · ${calculateScore(p.tiers)} очков</div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-danger btn-sm" data-delete-id="${escapeHtml(p.id)}">Удалить</button>
+        </div>`).join('');
+    }
+
+    function deletePlayer(playerId) {
+      const player = players.find(p => String(p.id) === String(playerId));
+      if (!player) return;
+      if (!confirm(`Удалить игрока «${player.nick}» из тир-листа?`)) return;
+
+      players = players.filter(p => String(p.id) !== String(playerId));
+      savePlayers();
+      renderLeaderboard();
+      renderManageList();
+      renderSearchResults();
+
+      if (String(currentModalPlayerId) === String(playerId)) closeModal();
+    }
+
+    function setAdminMode(on) {
+      adminMode = on;
+      document.getElementById('adminPanel').classList.toggle('open', on);
+      document.getElementById('adminManage').classList.toggle('open', on);
+      document.getElementById('toggleAdminBtn').classList.toggle('btn-primary', on);
+      document.getElementById('toggleAdminBtn').textContent = on ? '✓ Режим управления включён' : '⚙ Режим управления';
+      if (on) renderManageList();
+      document.getElementById('modalDeleteBtn').style.display =
+        (on && currentModalPlayerId !== null) ? 'inline-flex' : 'none';
+    }
+
+    /* ---------- поиск игроков (низ справа) ---------- */
+    const searchFab = document.getElementById('searchFab');
+    const searchPanel = document.getElementById('searchPanel');
+    const searchInput = document.getElementById('searchInput');
+    const searchResultsEl = document.getElementById('searchResults');
+    let activeResultIndex = -1;
+
+    function openSearch() {
+      searchPanel.classList.add('open');
+      searchFab.setAttribute('aria-expanded', 'true');
+      searchInput.value = '';
+      activeResultIndex = -1;
+      renderSearchResults();
+      setTimeout(() => searchInput.focus(), 60);
+    }
+
+    function closeSearch() {
+      searchPanel.classList.remove('open');
+      searchFab.setAttribute('aria-expanded', 'false');
+      activeResultIndex = -1;
+    }
+
+    function toggleSearch() {
+      if (searchPanel.classList.contains('open')) closeSearch();
+      else openSearch();
+    }
+
+    function getSearchMatches(query) {
+      const q = String(query || '').trim().toLowerCase();
+      const ranked = getRankedPlayers().map((p, idx) => ({ player: p, rank: idx + 1 }));
+      const list = q ? ranked.filter(item => item.player.nick.toLowerCase().includes(q)) : ranked;
+      return list.slice(0, 30);
+    }
+
+    function renderSearchResults() {
+      const query = searchInput ? searchInput.value : '';
+      const matches = getSearchMatches(query);
+
+      if (matches.length === 0) {
+        searchResultsEl.innerHTML = `<div class="search-empty">Игрок не найден</div>`;
+        activeResultIndex = -1;
+        return;
+      }
+
+      searchResultsEl.innerHTML = matches.map((item, i) => `
+        <button type="button" class="search-result${i === activeResultIndex ? ' active' : ''}" data-search-id="${escapeHtml(item.player.id)}">
+          <div class="player-avatar">${avatarHtml(item.player.nick)}</div>
+          <div>
+            <div>${escapeHtml(item.player.nick)}</div>
+            <div class="search-result-meta">${calculateScore(item.player.tiers)} очков</div>
+          </div>
+          <span class="search-result-rank">#${item.rank}</span>
+        </button>`).join('');
+
+      if (activeResultIndex >= matches.length) activeResultIndex = matches.length - 1;
+    }
+
+    function openSearchResult(playerId) {
+      closeSearch();
+      openPlayerModal(playerId);
+    }
+
+    searchFab.addEventListener('click', toggleSearch);
+    document.getElementById('headerSearchBtn').addEventListener('click', openSearch);
+
+    document.getElementById('searchClose').addEventListener('click', () => {
+      closeSearch();
+      searchFab.focus();
+    });
+
+    searchInput.addEventListener('input', () => {
+      activeResultIndex = -1;
+      renderSearchResults();
+    });
+
+    searchInput.addEventListener('keydown', (e) => {
+      const items = searchResultsEl.querySelectorAll('[data-search-id]');
+      if (e.key === 'ArrowDown' && items.length) {
+        e.preventDefault();
+        activeResultIndex = Math.min(activeResultIndex + 1, items.length - 1);
+        items.forEach((el, i) => el.classList.toggle('active', i === activeResultIndex));
+        items[activeResultIndex].scrollIntoView({ block: 'nearest' });
+      } else if (e.key === 'ArrowUp' && items.length) {
+        e.preventDefault();
+        activeResultIndex = Math.max(activeResultIndex - 1, 0);
+        items.forEach((el, i) => el.classList.toggle('active', i === activeResultIndex));
+        items[activeResultIndex].scrollIntoView({ block: 'nearest' });
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        const target = items[activeResultIndex] || items[0];
+        if (target) openSearchResult(target.dataset.searchId);
+      } else if (e.key === 'Escape') {
+        closeSearch();
+      }
+    });
+
+    searchResultsEl.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-search-id]');
+      if (!btn) return;
+      openSearchResult(btn.dataset.searchId);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        openSearch();
+      }
+    });
+
+    /* ---------- events ---------- */
+    document.getElementById('filterTabs').addEventListener('click', (e) => {
+      const tab = e.target.closest('.kit-tab');
+      if (!tab) return;
+
+      activeFilter = tab.dataset.filter || 'all';
+
+      document.querySelectorAll('#filterTabs .kit-tab').forEach(btn => {
+        const isActive = btn === tab;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+
+      renderLeaderboard();
+    });
+
+    document.getElementById('leaderboardBody').addEventListener('click', (e) => {
+      const row = e.target.closest('tr[data-id]');
+      if (!row) return;
+      openPlayerModal(row.dataset.id);
+    });
+
+    document.getElementById('manageList').addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-delete-id]');
+      if (!btn) return;
+      e.stopPropagation();
+      deletePlayer(btn.dataset.deleteId);
+    });
+
+    document.getElementById('toggleAdminBtn').addEventListener('click', () => setAdminMode(!adminMode));
+
+    document.getElementById('clearAllBtn').addEventListener('click', () => {
+      if (players.length === 0) return;
+      if (!confirm('Удалить ВСЕХ игроков из тир-листа?')) return;
+      players = [];
+      savePlayers();
+      renderLeaderboard();
+      renderManageList();
+      renderSearchResults();
+      closeModal();
+    });
+
+    document.getElementById('resetDataBtn').addEventListener('click', () => {
+      if (!confirm('Заменить текущий тир-лист демо-данными?')) return;
+      players = JSON.parse(JSON.stringify(DEFAULT_PLAYERS));
+      savePlayers();
+      renderLeaderboard();
+      renderManageList();
+      renderSearchResults();
+      closeModal();
+    });
+
+    document.getElementById('modalDeleteBtn').addEventListener('click', () => {
+      if (currentModalPlayerId !== null) deletePlayer(currentModalPlayerId);
+    });
+
+    document.getElementById('addPlayerForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nickInput = document.getElementById('pNick');
+      const nick = nickInput.value.trim();
+      if (!nick) return;
+
+      if (players.some(p => p.nick.toLowerCase() === nick.toLowerCase())) {
+        alert(`Игрок «${nick}» уже есть в тир-листе.`);
+        return;
+      }
+
+      const tiers = {};
+      KITS.forEach(kit => {
+        const id = 'pTier' + kit.charAt(0).toUpperCase() + kit.slice(1);
+        const select = document.getElementById(id);
+        tiers[kit] = TIERS.includes(select.value) ? select.value : '—';
+      });
+
+      players.push({ id: Date.now(), nick: nick, tiers: tiers });
+      savePlayers();
+
+      nickInput.value = '';
+      KITS.forEach(kit => {
+        const id = 'pTier' + kit.charAt(0).toUpperCase() + kit.slice(1);
+        document.getElementById(id).value = '—';
+      });
+
+      renderLeaderboard();
+      renderManageList();
+      renderSearchResults();
+    });
+
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    document.getElementById('playerModal').addEventListener('click', (e) => {
+      if (e.target.id === 'playerModal') closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.getElementById('playerModal').classList.contains('active')) closeModal();
+    });
+
+    /* ---------- boot ---------- */
+    loadPlayers();
+    initSelects();
+    renderKitTabs();
+    renderTableHead();
+    renderLeaderboard();
+    renderManageList();
+    renderSearchResults();
+  </script>
+</body>
+</html>
